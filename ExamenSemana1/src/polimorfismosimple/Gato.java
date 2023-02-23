@@ -1,4 +1,4 @@
-package PolimorfismoSimple;
+package polimorfismosimple;
 
 public class Gato extends Animal{
 	

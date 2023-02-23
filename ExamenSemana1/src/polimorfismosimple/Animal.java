@@ -1,7 +1,7 @@
 /*TENEMOS UNA GRANJA CON VARIOS ANIMALES
  * PUEDES ESCUCHAR LOS SONIDOS QUE HACEN E INTENTAR ACARICIARLOS
  * */
-package PolimorfismoSimple;
+package polimorfismosimple;
 
 //ESTA ES LA CLASE PADRE
 public class Animal {

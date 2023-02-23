@@ -1,9 +1,9 @@
-package PolimorfismoSimple;
+package polimorfismosimple;
 
 public class Vaca extends Animal{
 
 	void getSound() {
-		System.out.println("Muuuuuu");
+		System.out.println("¡Muuuuuu!");
 	}//getSound
 	
 	void pet() {
