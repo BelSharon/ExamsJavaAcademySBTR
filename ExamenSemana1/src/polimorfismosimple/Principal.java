@@ -2,7 +2,7 @@ package polimorfismosimple;
 
 import java.util.Scanner;
 
-public class Principal2 {
+public class Principal {
 
 	public static void main(String[] args) {
 		
