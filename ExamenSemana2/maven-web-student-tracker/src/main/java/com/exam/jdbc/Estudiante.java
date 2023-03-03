@@ -1,27 +1,36 @@
-package com.luv2code.web.jdbc;
+package com.exam.jdbc;
 
-public class Student {
+public class Estudiante {
 
 	private int id;
 	private String nombre;
 	private String apellido;
 	private String casa;
-	
+	private String mascota;
 	
 
-	public Student(String nombre, String apellido, String casa) {
+	public Estudiante(String nombre, String apellido, String casa, String mascota) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.casa = casa;
+		this.mascota = mascota;
 	}
 
-	public Student(int id, String nombre, String apellido, String casa) {
-		super();
+	public Estudiante(int id, String nombre, String apellido, String casa, String mascota) {
 		this.id = id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.casa = casa;
+		this.mascota = mascota;
 	}
+	
+	public Estudiante(int id, String nombre, String apellido, String mascota) {
+		this.id = id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.mascota = mascota;
+	}
+	
 
 	public int getId() {
 		return id;
@@ -54,6 +63,16 @@ public class Student {
 	public void setCasa(String casa) {
 		this.casa = casa;
 	}
+
+	public String getMascota() {
+		return mascota;
+	}
+
+	public void setMascota(String mascota) {
+		this.mascota = mascota;
+	}
+	
+	
 
 		
 }

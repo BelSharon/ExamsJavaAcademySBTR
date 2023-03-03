@@ -19,7 +19,7 @@
 	<div id="container">
 		<h3>Actualizar información</h3>
 		
-		<form action="StudentControllerServlet" method="GET">
+		<form action="EstudianteControllerServlet" method="GET">
 		
 			<input type="hidden" name="command" value="UPDATE" />
 
@@ -40,16 +40,9 @@
 					</tr>
 
 					<tr>
-						<td><label>Casa:</label></td>
-						<td>
-							<select class="form-select" aria-label="Default select example">
-							  <option selected value="${THE_STUDENT.casa}">Selecciona una casa</option>
-							  <option value="1">Hufflepuff</option>
-							  <option value="2">Griffindor</option>
-							  <option value="3">Slytherin</option>
-							  <option value="4">Revenclaw</option>
-							</select>
-						</td>
+						<td><label>Mascota:</label></td>
+						<td><input type="text" name="mascota" 
+								   value="${THE_STUDENT.mascota}" /></td>
 					</tr>
 					
 					<tr>
@@ -64,7 +57,7 @@
 		<div style="clear: both;"></div>
 		
 		<p>
-			<a href="StudentControllerServlet">Regresar</a>
+			<a href="EstudianteControllerServlet">Regresar</a>
 		</p>
 	</div>
 </body>

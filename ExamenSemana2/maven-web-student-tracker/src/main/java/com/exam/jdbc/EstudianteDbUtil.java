@@ -1,4 +1,4 @@
-package com.luv2code.web.jdbc;
+package com.exam.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,17 +10,17 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
-public class StudentDbUtil {
+public class EstudianteDbUtil {
 
 	private DataSource dataSource;
 
-	public StudentDbUtil(DataSource theDataSource) {
+	public EstudianteDbUtil(DataSource theDataSource) {
 		dataSource = theDataSource;
 	}
 	
-	public List<Student> getStudents(){
+	public List<Estudiante> getStudents(){
 		
-		List<Student> students = new ArrayList<>();
+		List<Estudiante> students = new ArrayList<>();
 		
 		// create sql statement
 		String sql = "select * from estudiante order by apellido";
@@ -33,14 +33,15 @@ public class StudentDbUtil {
 			// process result set
 			while (myRs.next()) {
 
-				// retrieve data from result set row
+				// recuperar datos de result set row
 				int id = myRs.getInt("id");
 				String nombre = myRs.getString("nombre");
 				String apellido = myRs.getString("apellido");
 				String casa = myRs.getString("casa");
+				String mascota = myRs.getString("mascota");
 
 				// create new student object
-				Student tempStudent = new Student(id, nombre, apellido, casa);
+				Estudiante tempStudent = new Estudiante(id, nombre, apellido, casa, mascota);
 
 				// add it to the list of students
 				students.add(tempStudent);
@@ -63,22 +64,23 @@ public class StudentDbUtil {
 	 * exc.printStackTrace(); } }
 	 */
 
-	public void addStudent(Student theStudent) throws Exception {
+	public void addStudent(Estudiante theStudent) throws Exception {
 
-		String sql = "insert into estudiante " + "(nombre, apellido, casa) " + "values (?, ?, ?)";
+		String sql = "insert into estudiante " + "(nombre, apellido, casa, mascota) " + "values (?, ?, ?, ?)";
 		
 		try (Connection myConn = dataSource.getConnection(); PreparedStatement ps = myConn.prepareStatement(sql);){
 			ps.setString(1, theStudent.getNombre());
 			ps.setString(2, theStudent.getApellido());
 			ps.setString(3, theStudent.getCasa());
+			ps.setString(4, theStudent.getMascota());
 
 			ps.execute();
 		}
 	}
 
-	public Student getStudent(String theStudentId) throws Exception {
+	public Estudiante getStudent(String theStudentId) throws Exception {
 
-		Student theStudent = null;
+		Estudiante theStudent = null;
 		int studentId = Integer.parseInt(theStudentId);
 
 		try (Connection myConn = dataSource.getConnection();
@@ -90,9 +92,10 @@ public class StudentDbUtil {
 				String nombre = myRs.getString("nombre");
 				String apellido = myRs.getString("apellido");
 				String casa = myRs.getString("casa");
+				String mascota = myRs.getString("mascota");
 
 				// use the studentId during construction
-				theStudent = new Student(studentId, nombre, apellido, casa);
+				theStudent = new Estudiante(studentId, nombre, apellido, casa, mascota);
 			} else {
 				throw new Exception("Could not find student id: " + studentId);
 			}
@@ -108,11 +111,11 @@ public class StudentDbUtil {
 		return ps;
 	}
 
-	public void updateStudent(Student theStudent) throws Exception {
+	public void updateStudent(Estudiante theStudent) throws Exception {
 		
 
 		// create SQL update statement
-		String sql = "update estudiante " + "set nombre=?, apellido=?, casa=? " + "where id=?";
+		String sql = "update estudiante " + "set nombre=?, apellido=?, mascota=? " + "where id=?";
 
 		try (Connection myConn = dataSource.getConnection();
 			 PreparedStatement myStmt = myConn.prepareStatement(sql);) { 
@@ -120,7 +123,7 @@ public class StudentDbUtil {
 			// set params
 			myStmt.setString(1, theStudent.getNombre());
 			myStmt.setString(2, theStudent.getApellido());
-			myStmt.setString(3, theStudent.getCasa());
+			myStmt.setString(3, theStudent.getMascota());
 			myStmt.setInt(4, theStudent.getId());
 
 			// execute SQL statement

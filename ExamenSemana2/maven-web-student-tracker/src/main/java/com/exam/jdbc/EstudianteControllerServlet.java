@@ -1,4 +1,4 @@
-package com.luv2code.web.jdbc;
+package com.exam.jdbc;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,13 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 /**
- * Servlet implementation class StudentControllerServlet
+ * Servlet implementation class EstudianteControllerServlet
  */
-@WebServlet("/StudentControllerServlet")
-public class StudentControllerServlet extends HttpServlet {
+@WebServlet("/EstudianteControllerServlet")
+public class EstudianteControllerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	private StudentDbUtil studentDbUtil;
+	private EstudianteDbUtil estudianteDbUtil;
 	//private StudentDbDummy studentDbUtil;
 	
 	@Resource(name="jdbc/web_student_tracker")
@@ -31,7 +31,7 @@ public class StudentControllerServlet extends HttpServlet {
 		
 		// create our student db util ... and pass in the conn pool / datasource
 		try {
-			studentDbUtil = new StudentDbUtil(dataSource);
+			estudianteDbUtil = new EstudianteDbUtil(dataSource);
 			//studentDbUtil = new StudentDbDummy();
 		}
 		catch (Exception exc) {
@@ -91,7 +91,7 @@ public class StudentControllerServlet extends HttpServlet {
 		String theStudentId = request.getParameter("studentId");
 		
 		// delete student from database
-		studentDbUtil.deleteStudent(theStudentId);
+		estudianteDbUtil.deleteStudent(theStudentId);
 		
 		// send them back to "list students" page
 		listStudents(request, response);
@@ -104,13 +104,13 @@ public class StudentControllerServlet extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("studentId"));
 		String nombre = request.getParameter("firstName");
 		String apellido = request.getParameter("lastName");
-		String casa = request.getParameter("casa");
+		String mascota = request.getParameter("mascota");
 		
 		// create a new student object
-		Student theStudent = new Student(id, nombre, apellido, casa);
+		Estudiante theStudent = new Estudiante(id, nombre, apellido, mascota);
 		
 		// perform update on database
-		studentDbUtil.updateStudent(theStudent);
+		estudianteDbUtil.updateStudent(theStudent);
 		
 		// send them back to the "list students" page
 		listStudents(request, response);
@@ -124,7 +124,7 @@ public class StudentControllerServlet extends HttpServlet {
 		String theStudentId = request.getParameter("studentId");
 		
 		// get student from database (db util)
-		Student theStudent = studentDbUtil.getStudent(theStudentId);
+		Estudiante theStudent = estudianteDbUtil.getStudent(theStudentId);
 		
 		// place student in the request attribute
 		request.setAttribute("THE_STUDENT", theStudent);
@@ -141,12 +141,13 @@ public class StudentControllerServlet extends HttpServlet {
 		String nombre = request.getParameter("firstName");
 		String apellido = request.getParameter("lastName");
 		String casa = request.getParameter("casa");	
+		String mascota = request.getParameter("mascota");	
 		
 		// create a new student object
-		Student theStudent = new Student(nombre, apellido, casa);
+		Estudiante theStudent = new Estudiante(nombre, apellido, casa, mascota);
 		
 		// add the student to the database
-		studentDbUtil.addStudent(theStudent);
+		estudianteDbUtil.addStudent(theStudent);
 				
 		// send back to main page (the student list)
 		listStudents(request, response);
@@ -156,7 +157,7 @@ public class StudentControllerServlet extends HttpServlet {
 		throws ServletException, IOException {
 
 		// get students from db util
-		List<Student> students = studentDbUtil.getStudents();
+		List<Estudiante> students = estudianteDbUtil.getStudents();
 		
 		// add students to the request
 		request.setAttribute("LISTA_ESTUDIANTES", students);

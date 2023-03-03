@@ -1,4 +1,4 @@
-<%@ page import="java.util.*, com.luv2code.web.jdbc.*" %>
+<%@ page import="java.util.*, com.exam.jdbc.*" %>
 <!DOCTYPE html>
 <html>
 
@@ -9,9 +9,9 @@
 </head>
 
 <%
-	// get the students from the request object (sent by servlet)
-	List<Student> theStudents = 
-					(List<Student>) request.getAttribute("STUDENT_LIST");
+// get the students from the request object (sent by servlet)
+	List<Estudiante> theStudents = 
+			(List<Estudiante>) request.getAttribute("STUDENT_LIST");
 %>
 
 <body>
@@ -30,17 +30,21 @@
 			<table>
 			
 				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Email</th>
+					<th>Nombre</th>
+					<th>Apellido</th>
+					<th>Casa</th>
+					<th>Mascota</th>
 				</tr>
 				
-				<% for (Student tempStudent : theStudents) { %>
+				<%
+								for (Estudiante tempStudent : theStudents) {
+								%>
 				
 					<tr>
 						<td> <%= tempStudent.getNombre() %> </td>
 						<td> <%= tempStudent.getApellido() %> </td>
 						<td> <%= tempStudent.getCasa() %> </td>
+						<td> <%= tempStudent.getMascota() %> </td>
 					</tr>
 				
 				<% } %>

@@ -1,30 +1,30 @@
-package com.luv2code.web.jdbc;
+package com.exam.jdbc;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDbDummy {
 
-	static List<Student> students = new ArrayList<>();
+	static List<Estudiante> students = new ArrayList<>();
 	static int idContador;
 
 	StudentDbDummy() {
-		students.add(new Student(++idContador, "Patrobas", "ApellidoPatrobas", "patrobas@gmail.com"));
-		students.add(new Student(++idContador, "Tercio", "ApellidoTercio", "tercio@gmail.com"));
-		students.add(new Student(++idContador, "Andronico", "ApellidoAndronico", "andronico@gmail.com"));
+		students.add(new Estudiante(++idContador, "Patrobas", "ApellidoPatrobas", "S", "gato"));
+		students.add(new Estudiante(++idContador, "Tercio", "ApellidoTercio", "H", "buho"));
+		students.add(new Estudiante(++idContador, "Andronico", "ApellidoAndronico", "G", "sapo"));
 	}
 
-	public List<Student> getStudents() throws Exception {
+	public List<Estudiante> getStudents() throws Exception {
 		return students;
 	}
 
-	public void addStudent(Student theStudent) throws Exception {
+	public void addStudent(Estudiante theStudent) throws Exception {
 		theStudent.setId(++idContador);
 		students.add(theStudent);
 	}
 
-	public Student getStudent(String theStudentId) throws Exception {
-		for (Student e : students) {
+	public Estudiante getStudent(String theStudentId) throws Exception {
+		for (Estudiante e : students) {
 			if (e.getId() == Integer.valueOf(theStudentId)) {
 				return e;
 			}
@@ -32,8 +32,8 @@ public class StudentDbDummy {
 		return null;
 	}
 
-	public void updateStudent(Student theStudent) throws Exception {		
-		for (Student e : students) {
+	public void updateStudent(Estudiante theStudent) throws Exception {		
+		for (Estudiante e : students) {
 			if (e.getId() == theStudent.getId()) {
 				e.setNombre(theStudent.getNombre());
 				e.setApellido(theStudent.getApellido());
@@ -53,7 +53,7 @@ public class StudentDbDummy {
 
 	public void deleteStudent(String theStudentId) throws Exception {
 
-		for (Student e : students) {
+		for (Estudiante e : students) {
 			if (e.getId() == Integer.valueOf(theStudentId)) {
 				students.remove(e);
 				return;

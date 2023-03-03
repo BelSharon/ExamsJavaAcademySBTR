@@ -35,19 +35,20 @@
 					<th>Nombre</th>
 					<th>Apellido</th>
 					<th>Casa</th>
+					<th>Mascota</th>
 					<th>Acción</th>
 				</tr>
 				
 				<c:forEach var="tempStudent" items="${LISTA_ESTUDIANTES}">
 					
 					<!-- set up a link for each student -->
-					<c:url var="tempLink" value="StudentControllerServlet">
+					<c:url var="tempLink" value="EstudianteControllerServlet">
 						<c:param name="command" value="LOAD" />
 						<c:param name="studentId" value="${tempStudent.id}" />
 					</c:url>
 
 					<!--  set up a link to delete a student -->
-					<c:url var="deleteLink" value="StudentControllerServlet">
+					<c:url var="deleteLink" value="EstudianteControllerServlet">
 						<c:param name="command" value="DELETE" />
 						<c:param name="studentId" value="${tempStudent.id}" />
 					</c:url>
@@ -56,6 +57,7 @@
 						<td> ${tempStudent.nombre} </td>
 						<td> ${tempStudent.apellido} </td>
 						<td> ${tempStudent.casa} </td>
+						<td> ${tempStudent.mascota} </td>
 						<td> 
 							<a href="${tempLink}">Actualizar</a> 
 							 | 
