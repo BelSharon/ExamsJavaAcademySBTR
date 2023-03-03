@@ -8,8 +8,7 @@ public class Resta extends Operacion{
 	public Resta(double x, double y) {
 		super(x, y);
 	}
-
-	//BIGDECIMAL NO ACEPTA OPERADORES +, -, *, /
+	
 	@Override
 	double ejecuta() {
 		return x-y;

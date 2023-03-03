@@ -25,6 +25,7 @@ public class StudentDbUtil {
 		// create sql statement
 		String sql = "select * from estudiante order by apellido";
 		
+		//TRY-WITH-RESOURSES
 		try (Connection myConn = dataSource.getConnection();
 				Statement myStmt = myConn.createStatement();
 				ResultSet myRs = myStmt.executeQuery(sql)) {

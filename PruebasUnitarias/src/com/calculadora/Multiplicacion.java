@@ -7,7 +7,7 @@ public class Multiplicacion extends Operacion{
 		super(x, y);
 	}
 
-	//BIGDECIMAL NO ACEPTA OPERADORES +, -, *, /
+	
 	@Override
 	double ejecuta() {
 		return x*y;

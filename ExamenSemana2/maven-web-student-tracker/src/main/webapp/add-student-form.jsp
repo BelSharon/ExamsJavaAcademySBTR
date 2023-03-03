@@ -46,6 +46,7 @@
 							  <option value="3">Slytherin</option>
 							  <option value="4">Revenclaw</option>
 							</select>
+						</td>
 					</tr>
 					
 					<tr>
