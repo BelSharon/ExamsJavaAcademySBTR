@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.service;
+package com.curso.springmvc.service;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.luv2code.springdemo.dao.LibroDAO;
-import com.luv2code.springdemo.entity.Libro;
+import com.curso.springmvc.dao.LibroDAO;
+import com.curso.springmvc.entity.Libro;
 
 @Service
 public class LibroServiceImpl implements LibroService {

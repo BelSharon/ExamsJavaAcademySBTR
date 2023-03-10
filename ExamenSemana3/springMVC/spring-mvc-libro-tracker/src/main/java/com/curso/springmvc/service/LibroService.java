@@ -1,8 +1,8 @@
-package com.luv2code.springdemo.service;
+package com.curso.springmvc.service;
 
 import java.util.List;
 
-import com.luv2code.springdemo.entity.Libro;
+import com.curso.springmvc.entity.Libro;
 
 public interface LibroService {
 

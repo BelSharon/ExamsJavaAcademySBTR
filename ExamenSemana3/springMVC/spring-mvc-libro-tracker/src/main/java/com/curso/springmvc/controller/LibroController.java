@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.controller;
+package com.curso.springmvc.controller;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.luv2code.springdemo.entity.Libro;
-import com.luv2code.springdemo.service.LibroService;
+import com.curso.springmvc.entity.Libro;
+import com.curso.springmvc.service.LibroService;
 
 @Controller
 @RequestMapping("/libro")

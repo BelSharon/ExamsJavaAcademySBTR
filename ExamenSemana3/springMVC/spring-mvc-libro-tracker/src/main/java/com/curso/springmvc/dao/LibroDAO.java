@@ -1,8 +1,8 @@
-package com.luv2code.springdemo.dao;
+package com.curso.springmvc.dao;
 
 import java.util.List;
 
-import com.luv2code.springdemo.entity.Libro;
+import com.curso.springmvc.entity.Libro;
 
 public interface LibroDAO {
 
