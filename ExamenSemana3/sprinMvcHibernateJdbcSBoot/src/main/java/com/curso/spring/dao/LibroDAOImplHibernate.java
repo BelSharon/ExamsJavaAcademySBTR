@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.dao;
+package com.curso.spring.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.luv2code.springdemo.entity.Libro;
+import com.curso.spring.entity.Libro;
 
 @Repository
 public class LibroDAOImplHibernate implements LibroDAO {

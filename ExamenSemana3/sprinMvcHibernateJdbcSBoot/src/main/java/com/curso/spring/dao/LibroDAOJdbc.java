@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.dao;
+package com.curso.spring.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.luv2code.springdemo.entity.Libro;
+import com.curso.spring.entity.Libro;
 
 @Repository
 public class LibroDAOJdbc implements LibroDAO {

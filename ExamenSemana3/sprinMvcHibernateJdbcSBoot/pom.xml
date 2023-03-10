@@ -9,10 +9,10 @@
 		<version>2.7.9</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.luv2code</groupId>
+	<groupId>com.curso</groupId>
 	<artifactId>springMvcHibernateJdbcSBoot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springdemo</name>
+	<name>spring</name>
 	<description>Se tomo como base el proyecto SpringMvc/Hibernate
 	             y se migro a SpringBoot y se realizó desde el Inizialiter
 	             , también se implemeto con JDBC</description>

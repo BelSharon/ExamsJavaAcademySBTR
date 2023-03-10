@@ -1,4 +1,4 @@
-package com.luv2code.springdemo;
+package com.curso.spring;
 
 import javax.sql.DataSource;
 import org.springframework.boot.jdbc.DataSourceBuilder;

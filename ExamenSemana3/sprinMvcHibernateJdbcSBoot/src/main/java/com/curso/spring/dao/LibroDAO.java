@@ -1,10 +1,10 @@
-package com.luv2code.springdemo.service;
+package com.curso.spring.dao;
 
 import java.util.List;
 
-import com.luv2code.springdemo.entity.Libro;
+import com.curso.spring.entity.Libro;
 
-public interface LibroService {
+public interface LibroDAO {
 
 	public List<Libro> getLibros();
 
