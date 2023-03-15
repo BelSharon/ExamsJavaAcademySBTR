@@ -1,4 +1,4 @@
-package com.luv2code.springdemo.entity;
+package com.curso.springdemo.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,8 +32,8 @@ public class Customer {
 	@Column(name="email")
 	private String email;
 	
-
-		
+	//CON LOMBOK SE GENERAN SETTERS, GETTERS Y CONSTRUCTORES
+	
 }
 
 
