@@ -9,9 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
 import com.luv2code.springdemo.entity.Customer;
 
-
+@Repository
 public class CustomerDAOJdbc implements CustomerDAO{
 
 	@Autowired
@@ -39,10 +41,10 @@ public class CustomerDAOJdbc implements CustomerDAO{
 				String lastName = myRs.getString("last_name");
 				String email = myRs.getString("email");
 
-				// create new student object
+				// create new customer object
 				Customer tempCustomer = new Customer(id, firstName, lastName, email);
 
-				// add it to the list of students
+				// add it to the list of customers
 				customers.add(tempCustomer);
 			}
 		} catch (SQLException e) {
@@ -100,7 +102,7 @@ public class CustomerDAOJdbc implements CustomerDAO{
 				String lastName = myRs.getString("last_name");
 				String email = myRs.getString("email");
 
-				// use the studentId during construction
+				// use the customerId during construction
 				theCustomer = new Customer(theId, firstName, lastName, email);
 			} else {
 				System.out.println("Could not find customer id: " + theId);
@@ -112,7 +114,7 @@ public class CustomerDAOJdbc implements CustomerDAO{
 	}
 	
 	private PreparedStatement crearStatementGetCustomer(Connection myConn, int customerId) throws SQLException {
-		String sql = "select * from student where id=?";
+		String sql = "select * from customer where id=?";
 		PreparedStatement ps = myConn.prepareStatement(sql);
 		ps.setInt(1, customerId);
 		return ps;

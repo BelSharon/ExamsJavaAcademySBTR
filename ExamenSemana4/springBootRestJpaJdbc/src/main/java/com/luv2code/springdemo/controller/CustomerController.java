@@ -72,7 +72,7 @@ public class CustomerController {
 			throw new RuntimeException("Customer id not found - " + customerId);
 		}
 		
-		customerService.deleteCustomer(customerId); //SE PUEDEN CON JPA Y JDBC
+		customerService.deleteCustomer(customerId);
 		
 		return "Deleted customer id - " + customerId;
 	}
