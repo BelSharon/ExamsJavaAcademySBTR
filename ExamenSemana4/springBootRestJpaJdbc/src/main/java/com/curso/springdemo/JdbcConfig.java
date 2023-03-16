@@ -16,7 +16,7 @@ public class JdbcConfig {
 	public DataSource mySqlDataSource()
     {
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
-        dataSourceBuilder.url("jdbc:mysql://localhost:3306/web_customer_tracker?useSSL=false&serverTimezone=UTC");
+        dataSourceBuilder.url("jdbc:mysql://localhost:3306/viveros_yecapixtla_neza?useSSL=false&serverTimezone=UTC");
         dataSourceBuilder.username("springstudent");
         dataSourceBuilder.password("springstudent");
         return dataSourceBuilder.build();

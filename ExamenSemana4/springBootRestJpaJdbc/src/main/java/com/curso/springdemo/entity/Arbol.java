@@ -15,22 +15,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="customer")
-public class Customer {
+@Table(name="arboles_viveros")
+public class Arbol {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="first_name")
-	private String firstName;
+	@Column(name="nombre_comun")
+	private String nombreComun;
 	
-	@Column(name="last_name")
-	private String lastName;
+	@Column(name="nombre_cientifico")
+	private String nombreCientifico;
 	
-	@Column(name="email")
-	private String email;
+	@Column(name="familia")
+	private String familia;
+	
+	@Column(name="estatus_nom")
+	private String estatus;
+	
 	
 	//CON LOMBOK SE GENERAN SETTERS, GETTERS Y CONSTRUCTORES
 	
