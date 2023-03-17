@@ -10,10 +10,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.curso</groupId>
-	<artifactId>sBootClientRestJpa</artifactId>
+	<artifactId>sBootClientRestJpaJdbc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springdemo</name>
-	<description>Servicio Rest con JPA para clientRest</description>
+	<description>Servicio Rest con JPA y JDBC para clientRest</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
