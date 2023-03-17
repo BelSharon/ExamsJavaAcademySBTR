@@ -1,7 +1,4 @@
-package com.javatechie.spring.batch.config;
-
-import com.javatechie.spring.batch.entity.Customer;
-import com.javatechie.spring.batch.repository.CustomerRepository;
+package com.curso.sbatch.config;
 
 import lombok.AllArgsConstructor;
 
@@ -22,6 +19,9 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.task.SimpleAsyncTaskExecutor;
 import org.springframework.core.task.TaskExecutor;
 
+import com.curso.sbatch.entity.Cliente;
+import com.curso.sbatch.repository.ClienteRepository;
+
 @Configuration
 @EnableBatchProcessing
 @AllArgsConstructor
@@ -29,28 +29,28 @@ public class SpringBatchConfig {
 
     private JobBuilderFactory jobBuilderFactory;
     private StepBuilderFactory stepBuilderFactory;
-    private CustomerRepository customerRepository;
+    private ClienteRepository clienteRepository;
 
 	@Bean
-    public FlatFileItemReader<Customer> reader() {
-        FlatFileItemReader<Customer> itemReader = new FlatFileItemReader<>();
-        itemReader.setResource(new FileSystemResource("src/main/resources/customers.csv"));
+    public FlatFileItemReader<Cliente> reader() {
+        FlatFileItemReader<Cliente> itemReader = new FlatFileItemReader<>();
+        itemReader.setResource(new FileSystemResource("src/main/resources/clientes.csv"));
         itemReader.setName("csvReader");
         itemReader.setLinesToSkip(1);
         itemReader.setLineMapper(lineMapper());
         return itemReader;
     }
 
-    private LineMapper<Customer> lineMapper() {
-        DefaultLineMapper<Customer> lineMapper = new DefaultLineMapper<>();
+    private LineMapper<Cliente> lineMapper() {
+        DefaultLineMapper<Cliente> lineMapper = new DefaultLineMapper<>();
 
         DelimitedLineTokenizer lineTokenizer = new DelimitedLineTokenizer();
         lineTokenizer.setDelimiter(",");
         lineTokenizer.setStrict(false);
-        lineTokenizer.setNames("id", "firstName", "lastName", "email", "gender", "contactNo", "country", "dob");
+        lineTokenizer.setNames("id", "nombre", "apellido", "correo", "sexo", "telefono", "pais", "diaNacimiento");
 
-        BeanWrapperFieldSetMapper<Customer> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
-        fieldSetMapper.setTargetType(Customer.class);
+        BeanWrapperFieldSetMapper<Cliente> fieldSetMapper = new BeanWrapperFieldSetMapper<>();
+        fieldSetMapper.setTargetType(Cliente.class);
 
         lineMapper.setLineTokenizer(lineTokenizer);
         lineMapper.setFieldSetMapper(fieldSetMapper);
@@ -59,32 +59,32 @@ public class SpringBatchConfig {
     }
 
     @Bean
-    public CustomerProcessor processor() {
-        return new CustomerProcessor();
+    public ClienteProcessor processor() {
+        return new ClienteProcessor();
     }
 
     @Bean
-    public RepositoryItemWriter<Customer> writer() {
-        RepositoryItemWriter<Customer> writer = new RepositoryItemWriter<>();
-        writer.setRepository(customerRepository);
+    public RepositoryItemWriter<Cliente> writer() {
+        RepositoryItemWriter<Cliente> writer = new RepositoryItemWriter<>();
+        writer.setRepository(clienteRepository);
         writer.setMethodName("save");
         return writer;
     }
 
     @Bean
-    public Step step1() {
-        return stepBuilderFactory.get("csv-step").<Customer, Customer>chunk(10)
+    public Step paso1() {
+        return stepBuilderFactory.get("csv-paso").<Cliente, Cliente>chunk(10)
                 .reader(reader())
                 .processor(processor())
                 .writer(writer())
                 .taskExecutor(taskExecutor())
                 .build();
-    }
+    }// ejecuta el paso por paquetes de 10
 
     @Bean
     public Job runJob() {
-        return jobBuilderFactory.get("importCustomers")
-                .flow(step1()).end().build();
+        return jobBuilderFactory.get("importClientes")
+                .flow(paso1()).end().build();
 
     }
 
@@ -93,6 +93,6 @@ public class SpringBatchConfig {
         SimpleAsyncTaskExecutor asyncTaskExecutor = new SimpleAsyncTaskExecutor();
         asyncTaskExecutor.setConcurrencyLimit(10);
         return asyncTaskExecutor;
-    }
+    }//la tarea (job) solo consta de un paso (step)
 
 }
