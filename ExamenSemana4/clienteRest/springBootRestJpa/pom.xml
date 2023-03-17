@@ -9,11 +9,11 @@
 		<version>2.7.9</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.luv2code</groupId>
-	<artifactId>springBootRestJpa</artifactId>
+	<groupId>com.curso</groupId>
+	<artifactId>sBootClientRestJpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springdemo</name>
-	<description>Servicio Rest con JPA</description>
+	<description>Servicio Rest con JPA para clientRest</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
