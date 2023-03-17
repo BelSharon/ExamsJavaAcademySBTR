@@ -46,16 +46,16 @@
 				</tr>
 				
 				<!-- loop over and print our customers -->
-				<c:forEach var="tempCustomer" items="${clientes}">
+				<c:forEach var="tempCliente" items="${clientes}">
 				
 					<!-- construct an "update" link with customer id -->
 					<c:url var="updateLink" value="/cliente/showFormForUpdate">
-						<c:param name="customerId" value="${tempCliente.id}" />
+						<c:param name="clienteId" value="${tempCliente.id}" />
 					</c:url>					
 
 					<!-- construct an "delete" link with customer id -->
-					<c:url var="deleteLink" value="/cliente/delete">
-						<c:param name="customerId" value="${tempCliente.id}" />
+					<c:url var="deleteLink" value="/cliente/eliminar">
+						<c:param name="clienteId" value="${tempCliente.id}" />
 					</c:url>					
 					
 					<tr>

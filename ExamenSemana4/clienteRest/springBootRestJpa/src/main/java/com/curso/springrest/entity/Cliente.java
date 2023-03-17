@@ -15,24 +15,25 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name="customer")
-public class Customer {
+@Table(name="cliente")
+public class Cliente {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private int id;
 	
-	@Column(name="first_name")
-	private String firstName;
+	@Column(name="nombre")
+	private String nombre;
 	
-	@Column(name="last_name")
-	private String lastName;
+	@Column(name="apellido")
+	private String apellido;
 	
-	@Column(name="email")
-	private String email;
+	@Column(name="correo")
+	private String correo;
 	
-
+	@Column(name="saldo_prestamo")
+	private Double saldoPrestamo;
 		
 }
 
